@@ -226,7 +226,7 @@ export class AppComponent implements OnInit {
   notImmunedCount: number = 0;
 
   data: any;
-
+  options: any;
   IllsPerDate: number[] = [];
   currentDate = new Date();
 
@@ -260,26 +260,28 @@ export class AppComponent implements OnInit {
       .subscribe((response) => {
         this.IllsPerDate = response;
         console.log(this.IllsPerDate);
-        this.data = {
-          labels: this.labels,
-          datasets: [
-            {
-              label: `Ills per day in last month ${this.lastMonthName}`,
-              data: this.IllsPerDate,
-            },
-          ],
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                aspectRatio: 0.8,
-                ticks: {
-                  stepSize: 1, // Set the tick interval for the y-axis
-                },
-              },
-            },
-          },
-        }; // Do something with the data
+       
+       this.data = {
+  labels: this.labels,
+  datasets: [
+    {
+      label: `Ills per day in last month: ${this.lastMonthName}`,
+      data: this.IllsPerDate,
+    },
+  ]
+}; 
+this.options = {
+  scales: {
+    x: {}, 
+    y: {
+      beginAtZero: true, 
+      aspectRatio: 0.2,
+      ticks: {
+        stepSize: 1, 
+      },
+    },
+  },
+};
       });
   }
   getMonthName(monthNumber: number) {

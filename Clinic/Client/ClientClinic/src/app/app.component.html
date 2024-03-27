@@ -1,21 +1,36 @@
+<!--region table-->
 <p-table [value]="members" [tableStyle]="{ 'min-width': '20rem' }">
   <ng-template pTemplate="header">
     <tr>
-      <th>Name</th>
-      <th>Last Name</th>
-      <th style="width: 5rem">
-        <p-button (click)="openCreateMemberForm('create')"
-          >Create New Member</p-button
+      <th class="center-content">Name</th>
+      <th class="center-content">Last Name</th>
+      <th style="width: 10rem" class="center-content">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
         >
-        <p-button (click)="visibleSchemesFunction()">Show Schemes</p-button>
+          <p-button
+            [style]="{ height: '5rem', 'margin-right': '1rem' }"
+            (click)="openCreateMemberForm('create')"
+            >Create New Member</p-button
+          >
+          <p-button
+            [style]="{ height: '5rem' }"
+            (click)="visibleSchemesFunction()"
+            >Show Schemes</p-button
+          >
+        </div>
       </th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-member>
     <tr>
-      <td>{{ member.name }}</td>
-      <td>{{ member.lastName }}</td>
-      <td>
+      <td class="center-content">{{ member.name }}</td>
+      <td class="center-content">{{ member.lastName }}</td>
+      <td class="center-content">
         <p-button
           (click)="showDialog(member)"
           icon="pi pi-external-link"
@@ -26,39 +41,52 @@
   </ng-template>
 </p-table>
 
+<!--full Details dialog-->
 <p-dialog
   [header]="(fullMember?.name || '') + ' ' + (fullMember?.lastName || '')"
   [(visible)]="visible"
   [style]="{ width: '50vw' }"
 >
-  <div *ngIf="fullMember">
-    <p>Identity Number: {{ fullMember.identityNumber }}</p>
-    <p>City: {{ fullMember.city }}</p>
-    <p>Street: {{ fullMember.street }}</p>
-    <p>Home Number: {{ fullMember.homeNumber }}</p>
-    <p>Birthdate: {{ fullMember.birthdate }}</p>
-    <p>Telephone: {{ fullMember.telephone }}</p>
-    <p>Mobile Phone: {{ fullMember.mobilePhone }}</p>
-    <p>Is Immune: {{ fullMember.isImmune }}</p>
+  <div *ngIf="fullMember" style="padding: 1rem">
+    <p><b>Identity Number:</b> {{ fullMember.identityNumber }}</p>
+    <p><b>City:</b> {{ fullMember.city }}</p>
+    <p><b>Street:</b> {{ fullMember.street }}</p>
+    <p><b>Home Number:</b> {{ fullMember.homeNumber }}</p>
+    <p><b>Birthdate:</b> {{ fullMember.birthdate }}</p>
+    <p><b>Telephone:</b> {{ fullMember.telephone }}</p>
+    <p><b>Mobile Phone:</b> {{ fullMember.mobilePhone }}</p>
+    <p><b>Is Immune:</b> {{ fullMember.isImmune }}</p>
     <!-- Assuming immunes is an array -->
-    <p *ngIf="fullMember.isImmune">Immunes:</p>
+    <p *ngIf="fullMember.isImmune"><b>Immunes:</b></p>
     <ul>
       <ng-container *ngFor="let immune of fullMember.immunes">
         <ng-container *ngIf="immune.creatorId !== 0">
           <li>
-            <p>Date: {{ immune.date }}</p>
-            <p>Creator Name: {{ immune.creatorName }}</p>
+            <p><b>Date:</b> {{ immune.date }}</p>
+            <p><b>Creator Name:</b> {{ immune.creatorName }}</p>
           </li>
         </ng-container>
       </ng-container>
     </ul>
-    <p>Positive Date: {{ fullMember.positiveDate }}</p>
-    <p>Negative Date: {{ fullMember.negativeDate }}</p>
-    <p-button (click)="openUpdateMemberForm('update')">update member</p-button>
-    <p-button (click)="deleteMember()">Delete member</p-button>
+    <p><b>Positive Date:</b> {{ fullMember.positiveDate }}</p>
+    <p><b>Negative Date:</b> {{ fullMember.negativeDate }}</p>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      "
+    >
+      <p-button (click)="openUpdateMemberForm('update')"
+        >Update Member</p-button
+      >
+      <p-button (click)="deleteMember()">Delete Member</p-button>
+    </div>
   </div>
 </p-dialog>
 
+<!--form dialog-->
 <p-dialog
   [header]="FormTitle"
   [(visible)]="visibleForm"
@@ -152,12 +180,8 @@
       name="isImmune"
     />
   </div>
-  <div *ngIf="newMember.isImmune">
-    <p-button
-      *ngIf="immunesCount < 4"
-      (click)="addImune()"
-      icon="pi pi-plus"
-    ></p-button>
+  <div *ngIf="newMember.isImmune" >
+    <p-button *ngIf="immunesCount < 4" (click)="addImune()" icon="pi pi-plus" styleClass="p-button-sm"></p-button>
     <label for="immunes">Immunes:</label>
     <div>
       <label for="date">Date:</label>
@@ -235,7 +259,7 @@
     </div>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="positiveDate">Positive Date:</label>
     <input
       type="datetime-local"
@@ -244,7 +268,7 @@
       name="positiveDate"
     />
   </div>
-  <div>
+  <div class="form-group">
     <label for="negativeDate">Negative Date:</label>
     <input
       type="datetime-local"
@@ -253,13 +277,24 @@
       name="negativeDate"
     />
   </div>
-  <div class="card flex justify-content-center">
+  <div
+    class="form-group"
+    style="display: flex; justify-content: center; margin-top: 1rem"
+  >
     <p-toast></p-toast>
-    <p-fileUpload mode="basic" chooseLabel="Choose profile picture" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*"  (onUpload)="onUpload($event)"></p-fileUpload>
   </div>
-  <!-- Add other input fields for member creation -->
-  <p-button (click)="Save()">Save</p-button>
+  <div
+    class="form-group"
+    style="display: flex; justify-content: center; margin-top: 1rem"
+  >
+    <p-button
+      label="Save"
+      (click)="Save()"
+      styleClass="p-button-success"
+    ></p-button>
+  </div>
 </p-dialog>
+<!--schemes dialog-->
 <p-dialog
   header="Schemes"
   [(visible)]="visibleSchemes"
@@ -270,6 +305,6 @@
     {{ notImmunedCount }}
   </p>
   <div class="card">
-    <p-chart type="bar" [data]="data"></p-chart>
+    <p-chart type="line" [data]="data" [options]="options"> </p-chart>
   </div>
 </p-dialog>
