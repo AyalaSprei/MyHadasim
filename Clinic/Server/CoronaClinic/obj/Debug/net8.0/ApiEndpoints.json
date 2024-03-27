@@ -1,0 +1,147 @@
+[
+  {
+    "ContainingType": "CoronaClinic.Controllers.MinimalApiController",
+    "Method": "GetAllMembers",
+    "RelativePath": "api/MinimalApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[CoronaClinic.Models.MemberMinimal, CoronaClinic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CoronaClinic.Controllers.MinimalApiController",
+    "Method": "GetMemberById",
+    "RelativePath": "api/MinimalApi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "CoronaClinic.Models.MemberDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CoronaClinic.Controllers.MinimalApiController",
+    "Method": "CreateMemberAndRecords",
+    "RelativePath": "api/MinimalApi/CreateMemberAndRecords",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "memberDto",
+        "Type": "CoronaClinic.Models.MemberDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CoronaClinic.Controllers.MinimalApiController",
+    "Method": "DeleteMember",
+    "RelativePath": "api/MinimalApi/DeleteMemberAndRecords/{memberId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "memberId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CoronaClinic.Controllers.MinimalApiController",
+    "Method": "GetIllsPerDay",
+    "RelativePath": "api/MinimalApi/getIllsPerDay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CoronaClinic.Controllers.MinimalApiController",
+    "Method": "GetNotImmunedCount",
+    "RelativePath": "api/MinimalApi/getNotImmunedCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CoronaClinic.Controllers.MinimalApiController",
+    "Method": "UpdateMemberAndRecords",
+    "RelativePath": "api/MinimalApi/UpdateMemberAndRecords/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "memberDto",
+        "Type": "CoronaClinic.Models.MemberDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "EJz0hTadI43BAAL1801o2HMK0jUDwVQLA2DD6RBpgcs=",
+  "Source": "CoronaClinic",
+  "BasePath": "_content/CoronaClinic",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CoronaClinic\\wwwroot",
+      "Source": "CoronaClinic",
+      "ContentRoot": "C:\\Users\\שפריי\\Documents\\הדסים\\Home exercise Hadasim\\Clinic\\Server\\CoronaClinic\\wwwroot\\",
+      "BasePath": "_content/CoronaClinic",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
