@@ -3,7 +3,7 @@
 Hi:)
 Task 1:
 
-Rirst after download run npm i --legacy-peer-dev
+First after download run npm i --legacy-peer-dev
 this will ensure all dependency are intalled anyway
 
 Run the server (CoronaClinic.sln)
