@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u05E9\u05E4\u05E8\u05D9\u05D9\\Documents\\\u05D4\u05D3\u05E1\u05D9\u05DD \u05EA\u05E8\u05D2\u05D9\u05DC \u05D1\u05D9\u05EA\\MyHadasim\\2 - towers\\Twiter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B8A6FF3A-7A54-4EE6-B25E-21DA1680D981}|Twiter\\Twiter.csproj|c:\\users\\\u05E9\u05E4\u05E8\u05D9\u05D9\\documents\\\u05D4\u05D3\u05E1\u05D9\u05DD \u05EA\u05E8\u05D2\u05D9\u05DC \u05D1\u05D9\u05EA\\myhadasim\\2 - towers\\twiter\\twiter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8A6FF3A-7A54-4EE6-B25E-21DA1680D981}|Twiter\\Twiter.csproj|solutionrelative:twiter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u05E9\u05E4\u05E8\u05D9\u05D9\\Documents\\\u05D4\u05D3\u05E1\u05D9\u05DD \u05EA\u05E8\u05D2\u05D9\u05DC \u05D1\u05D9\u05EA\\MyHadasim\\2 - towers\\Twiter\\Twiter\\Program.cs",
+              "RelativeDocumentMoniker": "Twiter\\Program.cs",
+              "ToolTip": "C:\\Users\\\u05E9\u05E4\u05E8\u05D9\u05D9\\Documents\\\u05D4\u05D3\u05E1\u05D9\u05DD \u05EA\u05E8\u05D2\u05D9\u05DC \u05D1\u05D9\u05EA\\MyHadasim\\2 - towers\\Twiter\\Twiter\\Program.cs",
+              "RelativeToolTip": "Twiter\\Program.cs",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAAAEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T10:14:07.622Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

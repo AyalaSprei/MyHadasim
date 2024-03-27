@@ -1,0 +1,15 @@
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\bin\Debug\net8.0\Twiter.exe
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\bin\Debug\net8.0\Twiter.deps.json
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\bin\Debug\net8.0\Twiter.runtimeconfig.json
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\bin\Debug\net8.0\Twiter.dll
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\bin\Debug\net8.0\Twiter.pdb
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.AssemblyInfoInputs.cache
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.AssemblyInfo.cs
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.csproj.CoreCompileInputs.cache
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.sourcelink.json
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.dll
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\refint\Twiter.dll
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.pdb
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\Twiter.genruntimeconfig.cache
+C:\Users\שפריי\Documents\הדסים תרגיל בית\MyHadasim\2 - towers\Twiter\Twiter\obj\Debug\net8.0\ref\Twiter.dll
