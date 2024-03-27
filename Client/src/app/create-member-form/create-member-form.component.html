@@ -1,0 +1,13 @@
+<form>
+  <div>
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      [(ngModel)]="newMember.name"
+      name="name"
+      required
+    />
+  </div>
+  <button type="submit" (click)="createMember()">Create Member</button>
+</form>
