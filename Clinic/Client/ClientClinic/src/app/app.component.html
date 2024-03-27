@@ -1,0 +1,275 @@
+<p-table [value]="members" [tableStyle]="{ 'min-width': '20rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Last Name</th>
+      <th style="width: 5rem">
+        <p-button (click)="openCreateMemberForm('create')"
+          >Create New Member</p-button
+        >
+        <p-button (click)="visibleSchemesFunction()">Show Schemes</p-button>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-member>
+    <tr>
+      <td>{{ member.name }}</td>
+      <td>{{ member.lastName }}</td>
+      <td>
+        <p-button
+          (click)="showDialog(member)"
+          icon="pi pi-external-link"
+          label="Show"
+        ></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog
+  [header]="(fullMember?.name || '') + ' ' + (fullMember?.lastName || '')"
+  [(visible)]="visible"
+  [style]="{ width: '50vw' }"
+>
+  <div *ngIf="fullMember">
+    <p>Identity Number: {{ fullMember.identityNumber }}</p>
+    <p>City: {{ fullMember.city }}</p>
+    <p>Street: {{ fullMember.street }}</p>
+    <p>Home Number: {{ fullMember.homeNumber }}</p>
+    <p>Birthdate: {{ fullMember.birthdate }}</p>
+    <p>Telephone: {{ fullMember.telephone }}</p>
+    <p>Mobile Phone: {{ fullMember.mobilePhone }}</p>
+    <p>Is Immune: {{ fullMember.isImmune }}</p>
+    <!-- Assuming immunes is an array -->
+    <p *ngIf="fullMember.isImmune">Immunes:</p>
+    <ul>
+      <ng-container *ngFor="let immune of fullMember.immunes">
+        <ng-container *ngIf="immune.creatorId !== 0">
+          <li>
+            <p>Date: {{ immune.date }}</p>
+            <p>Creator Name: {{ immune.creatorName }}</p>
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+    <p>Positive Date: {{ fullMember.positiveDate }}</p>
+    <p>Negative Date: {{ fullMember.negativeDate }}</p>
+    <p-button (click)="openUpdateMemberForm('update')">update member</p-button>
+    <p-button (click)="deleteMember()">Delete member</p-button>
+  </div>
+</p-dialog>
+
+<p-dialog
+  [header]="FormTitle"
+  [(visible)]="visibleForm"
+  [style]="{ width: '50vw' }"
+>
+  <div>
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newMember.name"
+      name="name"
+      required
+    />
+  </div>
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newMember.lastName"
+      name="lastName"
+      required
+    />
+  </div>
+  <div>
+    <label for="identityNumber">Identity Number:</label>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newMember.identityNumber"
+      name="identityNumber"
+      required
+    />
+  </div>
+  <div>
+    <label for="city">City:</label>
+    <input type="text" pInputText [(ngModel)]="newMember.city" name="city" />
+  </div>
+  <div>
+    <label for="street">Street:</label>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newMember.street"
+      name="street"
+    />
+  </div>
+  <div>
+    <label for="homeNumber">Home Number:</label>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newMember.homeNumber"
+      name="homeNumber"
+    />
+  </div>
+  <div>
+    <label for="birthdate">Birthdate:</label>
+    <input
+      type="datetime-local"
+      pInputText
+      [(ngModel)]="newMember.birthdate"
+      name="birthdate"
+    />
+  </div>
+  <div>
+    <label for="telephone">Telephone:</label>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newMember.telephone"
+      name="telephone"
+    />
+  </div>
+  <div>
+    <label for="mobilePhone">Mobile Phone:</label>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="newMember.mobilePhone"
+      name="mobilePhone"
+    />
+  </div>
+  <div>
+    <label for="isImmune">Is Immune:</label>
+    <input
+      type="checkbox"
+      [(ngModel)]="newMember.isImmune"
+      id="isImmune"
+      name="isImmune"
+    />
+  </div>
+  <div *ngIf="newMember.isImmune">
+    <p-button
+      *ngIf="immunesCount < 4"
+      (click)="addImune()"
+      icon="pi pi-plus"
+    ></p-button>
+    <label for="immunes">Immunes:</label>
+    <div>
+      <label for="date">Date:</label>
+      <input
+        type="datetime-local"
+        pInputText
+        [(ngModel)]="immunes[0].date"
+        name="date"
+      />
+    </div>
+    <div>
+      <label for="creatorId">Creator ID:</label>
+      <select [(ngModel)]="immunes[0].creatorId" name="creator">
+        <option *ngFor="let creator of creators" [value]="creator.creatorId">
+          {{ creator.creatorName }}
+        </option>
+      </select>
+    </div>
+    <div *ngIf="immunesCount > 1">
+      <div>
+        <label for="date">Date:</label>
+        <input
+          type="datetime-local"
+          pInputText
+          [(ngModel)]="immunes[1].date"
+          name="date"
+        />
+      </div>
+      <div>
+        <label for="creatorId">Creator ID:</label>
+        <select [(ngModel)]="immunes[1].creatorId" name="creator">
+          <option *ngFor="let creator of creators" [value]="creator.creatorId">
+            {{ creator.creatorName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="immunesCount > 2">
+      <div>
+        <label for="date">Date:</label>
+        <input
+          type="datetime-local"
+          pInputText
+          [(ngModel)]="immunes[2].date"
+          name="date"
+        />
+      </div>
+      <div>
+        <label for="creatorId">Creator ID:</label>
+        <select [(ngModel)]="immunes[2].creatorId" name="creator">
+          <option *ngFor="let creator of creators" [value]="creator.creatorId">
+            {{ creator.creatorName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="immunesCount > 3">
+      <div>
+        <label for="date">Date:</label>
+        <input
+          type="datetime-local"
+          pInputText
+          [(ngModel)]="immunes[3].date"
+          name="date"
+        />
+      </div>
+      <div>
+        <label for="creatorId">Creator ID:</label>
+        <select [(ngModel)]="immunes[3].creatorId" name="creator">
+          <option *ngFor="let creator of creators" [value]="creator.creatorId">
+            {{ creator.creatorName }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="positiveDate">Positive Date:</label>
+    <input
+      type="datetime-local"
+      pInputText
+      [(ngModel)]="newMember.positiveDate"
+      name="positiveDate"
+    />
+  </div>
+  <div>
+    <label for="negativeDate">Negative Date:</label>
+    <input
+      type="datetime-local"
+      pInputText
+      [(ngModel)]="newMember.negativeDate"
+      name="negativeDate"
+    />
+  </div>
+  <div class="card flex justify-content-center">
+    <p-toast></p-toast>
+    <p-fileUpload mode="basic" chooseLabel="Choose profile picture" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*"  (onUpload)="onUpload($event)"></p-fileUpload>
+  </div>
+  <!-- Add other input fields for member creation -->
+  <p-button (click)="Save()">Save</p-button>
+</p-dialog>
+<p-dialog
+  header="Schemes"
+  [(visible)]="visibleSchemes"
+  [style]="{ width: '50vw' }"
+>
+  <p>
+    The number of people who are not Immuned at all in the clinic:
+    {{ notImmunedCount }}
+  </p>
+  <div class="card">
+    <p-chart type="bar" [data]="data"></p-chart>
+  </div>
+</p-dialog>
