@@ -17,10 +17,6 @@ interface UploadEvent {
   files: File[];
 }
 
-class ImageSnippet {
-  constructor(public src: string, public file: File) {}
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,26 +25,62 @@ class ImageSnippet {
 
 })
 export class AppComponent implements OnInit {
+
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {
+    this.fetchData();
+  } 
+
   title = 'CoronaClient';
-  visible: boolean = false;
-  visibleForm: boolean = false;
-  visibleSchemes: boolean = false;
-  immunesCount = 1;
   members: MemberMinimal[] = [];
+  selectedMember: MemberMinimal | undefined;
+  fullMember: Member | undefined;
+  visible: boolean = false;
   immunes: Immune[] = [
     { date: new Date(), creatorId: 0 },
     { date: new Date(), creatorId: 0 },
     { date: new Date(), creatorId: 0 },
     { date: new Date(), creatorId: 0 },
   ];
+
+  fetchData() {
+    this.http.get<MemberMinimal[]>('/api/MinimalApi').subscribe((data) => {
+      this.members = data;
+      console.log(data);
+    });
+  }
+
+  showDialog(member: MemberMinimal) {
+    this.selectedMember = member;
+    this.getFullMember(this.selectedMember.id);
+    this.visible = true;
+  }
+  getFullMember(id: number) {
+    this.http.get<Member>(`/api/MinimalApi/${id}`).subscribe((data) => {
+      this.fullMember = data;
+      this.fullMember.immunes?.forEach((detail, i) => {
+        this.immunes[i].date = detail.date;
+        this.immunes[i].creatorId = detail.creatorId;
+      });
+      console.log(data);
+    });
+  }
+
+//#region form section
+
+  visibleForm: boolean = false;
+
+  immunesCount = 1;
+
   creators: { creatorId: number; creatorName: string }[] = [
     { creatorId: 1, creatorName: 'Faizer' },
     { creatorId: 2, creatorName: 'Moderna' },
   ];
 
-  selectedMember: MemberMinimal | undefined;
-  fullMember: Member | undefined;
   FormTitle: string = '';
+
   newMember: Member = {
     name: '',
     lastName: '',
@@ -66,27 +98,6 @@ export class AppComponent implements OnInit {
     profilePicture: '',
   };
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService
-  ) {
-    this.fetchData();
-  }
-  Save() {
-    this.newMember.immunes = this.immunes;
-    if (this.FormTitle == 'update') {
-      this.update();
-    } else {
-      this.createMember();
-    }
-    this.immunesCount = 1;
-    this.immunes = [
-      { date: new Date(), creatorId: 0 },
-      { date: new Date(), creatorId: 0 },
-      { date: new Date(), creatorId: 0 },
-      { date: new Date(), creatorId: 0 },
-    ];
-  }
   openCreateMemberForm(title: string) {
     this.newMember.name = '';
     this.newMember.lastName = '';
@@ -142,6 +153,25 @@ export class AppComponent implements OnInit {
       this.newMember.profilePicture = this.fullMember?.profilePicture || '';
     }
   }
+  addImune() {
+    console.log(this.immunesCount);
+    this.immunesCount++;
+  }
+  Save() {
+    this.newMember.immunes = this.immunes;
+    if (this.FormTitle == 'update') {
+      this.update();
+    } else {
+      this.createMember();
+    }
+    this.immunesCount = 1;
+    this.immunes = [
+      { date: new Date(), creatorId: 0 },
+      { date: new Date(), creatorId: 0 },
+      { date: new Date(), creatorId: 0 },
+      { date: new Date(), creatorId: 0 },
+    ];
+  }
   update() {
     console.log(this.newMember);
     const url = `/api/MinimalApi/UpdateMemberAndRecords/${this.fullMember?.id}`;
@@ -153,29 +183,6 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.fetchData();
     }, 1000);
-  }
-
-  fetchData() {
-    this.http.get<MemberMinimal[]>('/api/MinimalApi').subscribe((data) => {
-      this.members = data;
-      console.log(data);
-    });
-  }
-
-  showDialog(member: MemberMinimal) {
-    this.selectedMember = member;
-    this.getFullMember(this.selectedMember.id);
-    this.visible = true;
-  }
-  getFullMember(id: number) {
-    this.http.get<Member>(`/api/MinimalApi/${id}`).subscribe((data) => {
-      this.fullMember = data;
-      this.fullMember.immunes?.forEach((detail, i) => {
-        this.immunes[i].date = detail.date;
-        this.immunes[i].creatorId = detail.creatorId;
-      });
-      console.log(data);
-    });
   }
   createMember() {
     console.log(this.newMember);
@@ -189,10 +196,7 @@ export class AppComponent implements OnInit {
       this.fetchData();
     }, 1000);
   }
-  addImune() {
-    console.log(this.immunesCount);
-    this.immunesCount++;
-  }
+  
   deleteMember() {
     const url = `/api/MinimalApi/DeleteMemberAndRecords/${this.fullMember?.id}`;
     this.http.delete<any>(url).subscribe((response) => {
@@ -204,8 +208,9 @@ export class AppComponent implements OnInit {
       this.fetchData();
     }, 1000);
   }
+  //#endregion
 
-  //picture section
+  //#region picture section
   onUpload(event: UploadEvent) {
     this.messageService.add({
       severity: 'info',
@@ -213,7 +218,10 @@ export class AppComponent implements OnInit {
       detail: 'File Uploaded with Basic Mode',
     });
   }
-  //Schemes Section
+    //#endregion
+
+  //#region Schemes Section
+  visibleSchemes: boolean = false;
 
   notImmunedCount: number = 0;
 
@@ -291,4 +299,6 @@ export class AppComponent implements OnInit {
     ];
     return monthNames[monthNumber];
   }
+    //#endregion
+
 }

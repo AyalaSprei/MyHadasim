@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EJz0hTadI43BAAL1801o2HMK0jUDwVQLA2DD6RBpgcs=",
+  "Hash": "/+Z1N/1pYG4hEGmIlgARoFsP5hcX9yEwUtXQGPTFyL4=",
   "Source": "CoronaClinic",
   "BasePath": "_content/CoronaClinic",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "CoronaClinic\\wwwroot",
       "Source": "CoronaClinic",
-      "ContentRoot": "C:\\Users\\שפריי\\Documents\\הדסים\\Home exercise Hadasim\\Clinic\\Server\\CoronaClinic\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\שפריי\\Documents\\הדסים תרגיל בית\\MyHadasim\\Clinic\\Server\\CoronaClinic\\wwwroot\\",
       "BasePath": "_content/CoronaClinic",
       "Pattern": "**"
     }

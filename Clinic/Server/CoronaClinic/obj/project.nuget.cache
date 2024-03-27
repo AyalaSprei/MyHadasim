@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "76ypXpIuXDzDwlHKZ7HxS8oXyrFMTnAkUEaoMTOHN1Z58v8IXcovkaH4xWaGCTCft2Sn/lSeFfz/DHQUkrOjyQ==",
+  "dgSpecHash": "/VOVluyUoD4DA23B/wdgmru0snsrmWcH1LMhXwongvB8Pq1CMHhAn1P46H1GyaJm4GAHGlt0/T3Ktaa86fdLXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\שפריי\\Documents\\הדסים\\Home exercise Hadasim\\Clinic\\Server\\CoronaClinic\\CoronaClinic.csproj",
+  "projectFilePath": "C:\\Users\\שפריי\\Documents\\הדסים תרגיל בית\\MyHadasim\\Clinic\\Server\\CoronaClinic\\CoronaClinic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\שפריי\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\שפריי\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

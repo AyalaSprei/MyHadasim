@@ -9,16 +9,14 @@ import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateMemberFormComponent } from './create-member-form/create-member-form.component';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms'; 
 import { InputTextModule } from 'primeng/inputtext';
-import { DropdownModule } from 'primeng/dropdown'; // Import DropdownModule from PrimeNG
+import { DropdownModule } from 'primeng/dropdown'; 
 import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateMemberFormComponent
   ],
   imports: [
     BrowserModule,

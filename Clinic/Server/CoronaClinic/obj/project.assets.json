@@ -4562,11 +4562,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\שפריי\\Documents\\הדסים\\Home exercise Hadasim\\Clinic\\Server\\CoronaClinic\\CoronaClinic.csproj",
+      "projectUniqueName": "C:\\Users\\שפריי\\Documents\\הדסים תרגיל בית\\MyHadasim\\Clinic\\Server\\CoronaClinic\\CoronaClinic.csproj",
       "projectName": "CoronaClinic",
-      "projectPath": "C:\\Users\\שפריי\\Documents\\הדסים\\Home exercise Hadasim\\Clinic\\Server\\CoronaClinic\\CoronaClinic.csproj",
+      "projectPath": "C:\\Users\\שפריי\\Documents\\הדסים תרגיל בית\\MyHadasim\\Clinic\\Server\\CoronaClinic\\CoronaClinic.csproj",
       "packagesPath": "C:\\Users\\שפריי\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\שפריי\\Documents\\הדסים\\Home exercise Hadasim\\Clinic\\Server\\CoronaClinic\\obj\\",
+      "outputPath": "C:\\Users\\שפריי\\Documents\\הדסים תרגיל בית\\MyHadasim\\Clinic\\Server\\CoronaClinic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
