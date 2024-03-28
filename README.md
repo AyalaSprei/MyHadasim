@@ -19,3 +19,7 @@ if the width is 3 and the height is greater than 2 - because according to the in
 Task 3:
 
  There is a word file attached
+
+שימוש במערכת:
+
+
