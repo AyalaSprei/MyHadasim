@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms'; 
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown'; 
-import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { FileUploadModule } from 'primeng/fileupload';
    InputTextModule,
    DropdownModule,
    ChartModule,
-   FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

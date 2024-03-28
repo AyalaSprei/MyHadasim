@@ -8,7 +8,6 @@ import { Member, MemberMinimal, Immune } from './models';
 import { DatePipe } from '@angular/common';
 import { ChartData } from 'chart.js';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FileUploader } from 'ng2-file-upload';
 import { Observable } from 'rxjs';
 import { MessageService } from 'primeng/api';
 
