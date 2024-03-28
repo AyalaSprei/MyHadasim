@@ -235,7 +235,7 @@ export class AppComponent implements OnInit {
     this.currentDate.getMonth() === 0 ? 11 : this.currentDate.getMonth(); // Check if current month is January
   daysInLastMonth = new Date(
     this.currentDate.getFullYear(),
-    this.lastMonth + 1,
+    this.lastMonth,
     0
   ).getDate(); // Get number of days in last month
   labels = Array.from({ length: this.daysInLastMonth }, (_, i) => i + 1);
