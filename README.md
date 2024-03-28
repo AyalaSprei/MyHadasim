@@ -3,8 +3,8 @@
 Hi:)
 Task 1:
 
-First after download run npm i --legacy-peer-dev
-this will ensure all dependency are intalled anyway
+First after download run npm i
+to install all the dependencies
 
 Run the server (CoronaClinic.sln)
 Run the client (ng s -o)
